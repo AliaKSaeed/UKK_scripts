@@ -1,0 +1,24 @@
+
+
+# Loop to write the names of .cram/.crai files into two lists 12/03/2023 
+# The directory to which I should copy the script >> Determining the carrier frequency of pathogenic heteroplasmic mitochondrial DNA variations in the UK Biobank cohort and their potential contribution to common traits.:/Bulk/Whole genome sequences/Analysis_Alia
+# The parent directory >> Determining the carrier frequency of pathogenic heteroplasmic mitochondrial DNA variations in the UK Biobank cohort and their potential contribution to common traits.:/Bulk/Whole genome sequences/Whole genome CRAM files
+
+
+#!/bin/bash
+
+# Define parent directory path
+parent_dir="Determining the carrier frequency of pathogenic heteroplasmic mitochondrial DNA variations in the UK Biobank cohort and their potential contribution to common traits.:/Bulk/Whole genome sequences/Whole genome CRAM files"
+
+# Define output file names
+cram_list="cram_list.txt"
+crai_list="crai_list.txt"
+
+# Loop through directories and find .cram and .crai files
+for ((i=10;i<=60;i++)); do
+    # Get .cram file names and add to list
+    find ${parent_dir}/${i} -type f -name "*.cram" >> ${cram_list}
+    
+    # Get .crai file names and add to list
+    find ${parent_dir}/${i} -type f -name "*.crai" >> ${crai_list}
+done
